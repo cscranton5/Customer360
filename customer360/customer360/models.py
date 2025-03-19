@@ -6,6 +6,8 @@ class Customer(models.Model):
     email = models.EmailField(max_length=100)
     phone = models.CharField(max_length=20)
     address = models.CharField(max_length=200)
+    social_media = models.CharField(max_length=200,null=True)
+
 
 
 
@@ -21,6 +23,7 @@ class Interaction(models.Model):
         ('sms', 'SMS'),
         ('email', 'Email'),
         ('letter', 'Letter'),
+        ('social_media', 'Social Media'),
     ]
 
     DIRECTION_CHOICES = [
@@ -33,4 +36,3 @@ class Interaction(models.Model):
     direction = models.CharField(max_length=10, choices=DIRECTION_CHOICES)
     interaction_date = models.DateField(auto_now_add=True)
     summary = models.TextField()
-    Social_media = models.TextField()
